@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DropDown from './DropDown.js';
+import Slider from './Slider.js';
 
 
 const TableHeader =() => {
@@ -14,7 +15,7 @@ const TableHeader =() => {
 }
 
 const TableData = props =>{
-    console.log(props);
+    //console.log(props);
  
     if(props.constructor === Array){
         return(
@@ -26,7 +27,9 @@ const TableData = props =>{
         )
     }
     else {
-        return <td>{props}</td>
+        return <td>
+            {/* <Slider range={rangeVal} updateRange={this.updateRange} /> */}
+        </td>
     }
 
 }
@@ -52,6 +55,7 @@ const TableBody = props => {
 
 
 class TacticsTabContainer extends Component {
+
     render() {
         const { data } = this.props;
 
