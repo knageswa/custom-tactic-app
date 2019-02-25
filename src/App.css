@@ -31,3 +31,16 @@
     transform: rotate(360deg);
   }
 }
+
+.flexContainer{
+  display: flex;
+}
+
+.tableContainer {
+  width:50%;
+}
+.sideView {
+  flex: 1;
+  
+
+}

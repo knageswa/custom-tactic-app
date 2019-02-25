@@ -28,7 +28,7 @@ const TableData = props =>{
     }
     else {
         return <td>
-            {/* <Slider range={rangeVal} updateRange={this.updateRange} /> */}
+            <Slider />
         </td>
     }
 
@@ -55,14 +55,14 @@ const TableBody = props => {
 
 
 class TacticsTabContainer extends Component {
-
+    
     render() {
         const { data } = this.props;
-
+       
         return (
            <table>
                <TableHeader />
-               <TableBody data ={data} />
+               <TableBody data ={data}  />
  
             </table>
         );

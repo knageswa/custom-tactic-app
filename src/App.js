@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
 
+ 
 class App extends Component {
   render() {
     const defenseRows =
@@ -46,10 +47,20 @@ class App extends Component {
 
 
     return (
+      
       <div className="container">
         <h1>Custom Fifa Tactics</h1>
-        <TacticsTabContainer data={defenseRows} />
-        <TacticsTabContainer data={offenseRows} />
+        
+        <div className="flexContainer">
+          <div className="tableContainer">
+            <TacticsTabContainer data={defenseRows} />
+            <TacticsTabContainer data={offenseRows} />
+          </div>
+          <div className="sideView">
+            sideView
+          </div>
+        </div>
+
       </div>
     );
   }
