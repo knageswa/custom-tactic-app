@@ -1,25 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import TacticsTabContainer from './TacticsTabContainer.js';
 
 class App extends Component {
   render() {
+    const defenseRows =
+    {
+      
+      'DefensiveStyle': [
+        'Drop Back',
+        'Balanced',
+        'Pressure on Heavy Touch',
+        'Press after possesion Loss',
+        'constant Pressure'
+      ],
+      'DefensiveWidth': 'slider',
+      'Depth': 'slider'
+    };
+
+
+    const offenseRows = 
+    {
+        'OffensiveStyle': [
+          'Possesion',
+          'Balanced',
+          'Long Ball',
+          'Fast Build up',
+          'constant Pressure'
+        ],
+      
+      
+        'OffensiveWidth': 'slider',
+      
+      
+        'Players in Box': 'slider',
+      
+      
+        'Corners': 'slider',
+      
+      
+        'Freekicks': 'slider'
+      
+      };
+
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <h1>Custom Fifa Tactics</h1>
+        <TacticsTabContainer data={defenseRows} />
+        <TacticsTabContainer data={offenseRows} />
       </div>
     );
   }
