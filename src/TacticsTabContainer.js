@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import DropDown from './DropDown.js';
 
 
 const TableHeader =() => {
@@ -17,8 +18,11 @@ const TableData = props =>{
  
     if(props.constructor === Array){
         return(
-            ///<DropDown data={props} />
-            <td>DropDown</td>
+            <td>
+                <DropDown data={props} />
+            </td>
+            
+            //<td>DropDown</td>
         )
     }
     else {
