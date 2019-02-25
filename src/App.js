@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Tabs from './Tabs';
 
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
@@ -52,13 +53,27 @@ class App extends Component {
         <h1>Custom Fifa Tactics</h1>
         
         <div className="flexContainer">
-          <div className="tableContainer">
-            <TacticsTabContainer data={defenseRows} />
-            <TacticsTabContainer data={offenseRows} />
-          </div>
-          <div className="sideView">
-            sideView
-          </div>
+          < div className="tableContainer">
+          <Tabs>
+              <div label="Gator">
+            
+                  <TacticsTabContainer data={defenseRows} />
+                  <TacticsTabContainer data={offenseRows} />
+                
+
+              </div>
+              <div label="Croc">
+                After &apos;while, <em>Crocodile</em>!
+              </div>
+              <div label="Sarcosuchus">
+                Nothing to see here, this tab is <em>extinct</em>!
+              </div>
+            </Tabs>
+            </div>
+            <div className="sideView">
+                  sideView
+                </div>
+
         </div>
 
       </div>
