@@ -3,7 +3,8 @@ import Tabs from './Tabs';
 
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
-import data from './Data.json';
+import tacticsData from './tacticsData.json';
+import formation from './formation.json';
 
 
  
