@@ -3,49 +3,35 @@ import Tabs from './Tabs';
 
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
+import data from './Data.json';
+
 
  
 class App extends Component {
-  render() {
-    const defenseRows =
-    {
-      
-      'DefensiveStyle': [
-        'Drop Back',
-        'Balanced',
-        'Pressure on Heavy Touch',
-        'Press after possesion Loss',
-        'constant Pressure'
-      ],
-      'DefensiveWidth': 'slider',
-      'Depth': 'slider'
+
+  constructor(){
+    super();
+    this.state = {
+      defenseRow: data.defenseRows,
+      offenseRow: data.offenseRows
     };
+  };
+  
+  changeDefenseRow = (obj) => {
+    const newState = Object.assign(this.state.defenseRow, obj);
+    this.setState(newState);
+   }
 
-
-    const offenseRows = 
-    {
-        'OffensiveStyle': [
-          'Possesion',
-          'Balanced',
-          'Long Ball',
-          'Fast Build up',
-          'constant Pressure'
-        ],
-      
-      
-        'OffensiveWidth': 'slider',
-      
-      
-        'Players in Box': 'slider',
-      
-      
-        'Corners': 'slider',
-      
-      
-        'Freekicks': 'slider'
-      
-      };
-
+   changeOffenseRow = (obj) => {
+    
+ 
+    const newState = Object.assign(this.state.offenseRow, obj);
+    this.setState(newState);
+    console.log(this.state);
+   }
+  
+  render() {
+ 
 
     return (
       
@@ -57,8 +43,8 @@ class App extends Component {
           <Tabs>
               <div label="Gator">
             
-                  <TacticsTabContainer data={defenseRows} />
-                  <TacticsTabContainer data={offenseRows} />
+                  <TacticsTabContainer data={this.state.defenseRow} onChange={this.changeDefenseRow} />
+                  <TacticsTabContainer data={this.state.offenseRow} onChange={this.changeOffenseRow}/>
                 
 
               </div>

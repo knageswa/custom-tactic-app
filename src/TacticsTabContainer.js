@@ -15,58 +15,57 @@ const TableHeader =() => {
 }
 
 const TableData = props =>{
-    //console.log(props);
- 
-    if(props.constructor === Array){
+
+    const upDateValue=(key,value)=>{
+        let obj = {};
+        obj[key]=value;
+        console.log(obj);
+        props.onChange(obj);
+    };
+    
+    if(typeof props.data !== 'number'){
+
         return(
             <td>
-                <DropDown data={props} />
+                <DropDown data={props.data} dkey={props.dkey} onChange={upDateValue} />
             </td>
             
-            //<td>DropDown</td>
-        )
+        ) 
     }
     else {
         return <td>
-            <Slider />
+            <Slider data={props.data} dkey={props.dkey} onChange={upDateValue}  />
         </td>
     }
 
 }
 
 const TableBody = props => { 
-   
+
     const rows = Object.keys(props.data).map((key,index) => {
         return (
             <tr key={index}>
                 <td>{key}</td>                
-                {TableData(props.data[key])}
+                <TableData data={props.data[key]} dkey={key} onChange={props.onChange} />
                 
  
             </tr>
         );
     });
-    
-    
-    //console.log(props.data);
      return <tbody>{rows}</tbody>;
-
 }
 
 
-class TacticsTabContainer extends Component {
-    
-    render() {
-        const { data } = this.props;
-       
+ const TacticsTabContainer =(props)=> {
+        const { data } = props;
         return (
            <table>
                <TableHeader />
-               <TableBody data ={data}  />
+               <TableBody data ={data} onChange = {props.onChange}/>
  
             </table>
         );
-    }
+    
 }
 
 export default TacticsTabContainer;

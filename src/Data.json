@@ -1,0 +1,32 @@
+{
+    "defenseRows": {
+        "DefensiveStyle": {
+            "values": [
+                "Drop Back",
+                "Balanced",
+                "Pressure on Heavy Touch",
+                "Press after possesion Loss",
+                "constant Pressure"
+            ],
+            "selected": 0
+        },
+        "DefensiveWidth": 5,
+        "Depth": 5
+    },
+    "offenseRows": {
+        "OffensiveStyle": {
+            "values": [
+                "Possesion",
+                "Balanced",
+                "Long Ball",
+                "Fast Build up",
+                "constant Pressure"
+            ],
+            "selected": 0
+        },
+        "OffensiveWidth": 5,
+        "Players in Box": 5,
+        "Corners": 5,
+        "Freekicks": 5
+    }
+}

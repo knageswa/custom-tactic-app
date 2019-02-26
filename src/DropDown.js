@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 
-
-
-
-
-class DropDown extends Component {
+const DropDown =(props)=> {
     
-    
+    const {values,selected} = props.data;
 
-    render() {
-        const {data} = this.props;
+    const handleChange = (e) => {
+        console.log(e.value);
+        const index = values.indexOf(e.value);
+        console.log(index);
+        let newObj = {};
+        newObj.selected = index;
+        newObj.values = values;
+        props.onChange(props.dkey, newObj);
+      }
 
-        
         return (
-            <Dropdown options={data} onChange={this._onSelect} value={data[0]} placeholder="Select an option" />
+            <Dropdown options={values} onChange={handleChange} value={values[selected]} placeholder="Select an option" />
         );
-    }
+    
 }
 
 export default DropDown;

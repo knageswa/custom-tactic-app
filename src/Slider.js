@@ -16,21 +16,14 @@ const genSlideStyle = (value) => {
   };
 };
 
-class Slider extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      value: 5,
-    }
+
+
+const  Slider = (props)=> {
+  const handleChange = (e) => {
+    props.onChange(props.dkey, Number(e.target.value));
   }
-  
-  handleChange = (e) => {
-    this.setState({ value: e.target.value });
-    console.log(e.target.value);
-  }
-  
-  render () {
-    const slideStyle = genSlideStyle(this.state.value);
+
+    const slideStyle = genSlideStyle(props.data);
     return (
       <div className="range">
         <span className="bullet" />
@@ -44,22 +37,22 @@ class Slider extends React.Component {
         <span className="bullet-8" />
         <span className="bullet-9" />
         <span className="range-value" style={slideStyle.range} />
-        <span className="circle" style={slideStyle.point}>{this.state.value}</span>
+        <span className="circle" style={slideStyle.point}>{props.data}</span>
         <input
           className="range-slide"
           name="range"
           type="range"
           min="0"
           max="10"
-          value={this.state.value}
+          value={props.data}
           step="1"
-          onChange={this.handleChange}
+          onChange={handleChange}
         />
          
       </div>
       
       
     );
-  }
+  
 }
 export default Slider;
