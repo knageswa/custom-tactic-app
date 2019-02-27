@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Tabs from './Tabs';
 
+
+
+
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
 import FormationContainer  from './SideViewContainer.js';
@@ -38,15 +41,16 @@ class App extends Component {
    changeFormation = (obj) => {
      const newState = Object.assign(this.state.changeFormation,obj);
      this.setState(newState);
-     console.log(this.state);
+     //console.log(this.state);
    }
   
   render() {
     
     const DisplayListofFormation =(props)=>{
-      console.log(props.values);
+      console.log(props.data.values);
       return(
-        
+     
+ 
         <img  className="imageStyle" src={props.data.urls} alt=''/>
       )
     }
@@ -66,9 +70,11 @@ class App extends Component {
                 
 
               </div>
-              <div label="formations">
-                <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
-              </div>
+              <div label="formations" >
+               
+
+                      <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
+
               <div label="Sarcosuchus">
                 Nothing to see here, this tab is <em>extinct</em>!
               </div>
