@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import DropDown from './DropDown.js';
 import Slider from './Slider.js';
 

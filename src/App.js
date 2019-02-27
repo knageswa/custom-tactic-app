@@ -3,8 +3,10 @@ import Tabs from './Tabs';
 
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
+import FormationContainer  from './SideViewContainer.js';
 import tacticsData from './tacticsData.json';
-import formation from './formation.json';
+import formations from './formation.json';
+
 
 
  
@@ -13,9 +15,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      defenseRow: data.defenseRows,
-      offenseRow: data.offenseRows
+      defenseRow: tacticsData.defenseRows,
+      offenseRow: tacticsData.offenseRows,
+      formation:formations.formation,
     };
+    
   };
   
   changeDefenseRow = (obj) => {
@@ -28,11 +32,24 @@ class App extends Component {
  
     const newState = Object.assign(this.state.offenseRow, obj);
     this.setState(newState);
-    console.log(this.state);
+    
+   }
+
+   changeFormation = (obj) => {
+     const newState = Object.assign(this.state.changeFormation,obj);
+     this.setState(newState);
+     console.log(this.state);
    }
   
   render() {
- 
+    
+    const DisplayListofFormation =(props)=>{
+      console.log(props.values);
+      return(
+        
+        <img  className="imageStyle" src={props.data.urls} alt=''/>
+      )
+    }
 
     return (
       
@@ -42,15 +59,15 @@ class App extends Component {
         <div className="flexContainer">
           < div className="tableContainer">
           <Tabs>
-              <div label="Gator">
+              <div label="tactics">
             
                   <TacticsTabContainer data={this.state.defenseRow} onChange={this.changeDefenseRow} />
                   <TacticsTabContainer data={this.state.offenseRow} onChange={this.changeOffenseRow}/>
                 
 
               </div>
-              <div label="Croc">
-                After &apos;while, <em>Crocodile</em>!
+              <div label="formations">
+                <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
               </div>
               <div label="Sarcosuchus">
                 Nothing to see here, this tab is <em>extinct</em>!
@@ -58,8 +75,8 @@ class App extends Component {
             </Tabs>
             </div>
             <div className="sideView">
-                  sideView
-                </div>
+              {/* <FormationContainer data={this.state.formation} /> */}
+            </div>
 
         </div>
 

@@ -1,6 +1,20 @@
 {
-    "formation":{
-        "urls":[],
-        "selected":0
+    "formation": {
+        "values":[
+            {
+                "3-1-4-2": "./formations/3-1-4-2.png"
+            },
+            {
+                "3-4-1-2":"./formations/3-4-1-2.png"
+            },
+            {
+                "3-4-2-1":"./formations/3-4-2-1.png"
+            },
+            {
+                "3-4-3":"./formations/3-4-3.png"
+            }
+        
+        ],
+        "selected": 0
     }
 }
