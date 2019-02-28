@@ -14,6 +14,7 @@ import DisplayListofFormation from './FormationContainer.js';
 
 
 
+
  
 class App extends Component {
 
@@ -23,10 +24,17 @@ class App extends Component {
       defenseRow: tacticsData.defenseRows,
       offenseRow: tacticsData.offenseRows,
       formation:formations.formation,
-      selectedTab:0
+      selectedTab:0,
+      activeTab:"Tactics"
     };
     
   };
+
+  changeTab = (obj)=>{
+    const newState = Object.assign(this.state, obj);
+    this.setState(newState);
+    console.log(this.state);
+  }
   
   changeDefenseRow = (obj) => {
     const newState = Object.assign(this.state.defenseRow, obj);
@@ -47,6 +55,7 @@ class App extends Component {
 
      
    }
+   
   
   render() {
     
@@ -59,27 +68,27 @@ class App extends Component {
         
         <div className="flexContainer">
           < div className="tableContainer">
-          <Tabs>
-              <div label="tactics">
+          <Tabs activeTab={this.state.activeTab} onClick={this.changeTab} >
+              <div label="Tactics">
             
                   <TacticsTabContainer data={this.state.defenseRow} onChange={this.changeDefenseRow} />
                   <TacticsTabContainer data={this.state.offenseRow} onChange={this.changeOffenseRow}/>
                 
 
               </div>
-              <div  label="formations" >
+              <div  label="Formations" >
                
 
                       <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
               </div>
 
-              <div label="Sarcosuchus">
+              <div label="Player Instructions">
                 Nothing to see here, this tab is <em>extinct</em>!
               </div>
             </Tabs>
             </div>
             <div className="sideView">
-              <PreviewContainer data={this.state.formation} />
+              <PreviewContainer data={this.state} />
             </div>
 
         </div>
