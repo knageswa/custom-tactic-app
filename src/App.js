@@ -11,6 +11,7 @@ import PreviewContainer  from './SideViewContainer.js';
 import tacticsData from './tacticsData.json';
 import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
+import FormationField from './PlayerInstructionsContainer.js';
 
 
 
@@ -33,7 +34,7 @@ class App extends Component {
   changeTab = (obj)=>{
     const newState = Object.assign(this.state, obj);
     this.setState(newState);
-    console.log(this.state);
+    
   }
   
   changeDefenseRow = (obj) => {
@@ -83,7 +84,7 @@ class App extends Component {
               </div>
 
               <div label="Player Instructions">
-                Nothing to see here, this tab is <em>extinct</em>!
+                <PlayerInstructionsContainer />
               </div>
             </Tabs>
             </div>

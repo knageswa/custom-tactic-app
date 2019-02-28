@@ -43,6 +43,8 @@ const displayFormation = (props)=>{
 
 
 const displayPlayerInstructions = (props)=>{
+
+    ///coordinates origin bottom left
     return(
         <div>
         displayPlayerInstructions   
