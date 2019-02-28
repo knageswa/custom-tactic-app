@@ -4,11 +4,13 @@ import Tabs from './Tabs';
 
 
 
+
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
-import FormationContainer  from './SideViewContainer.js';
+import PreviewContainer  from './SideViewContainer.js';
 import tacticsData from './tacticsData.json';
 import formations from './formation.json';
+import DisplayListofFormation from './FormationContainer.js';
 
 
 
@@ -21,6 +23,7 @@ class App extends Component {
       defenseRow: tacticsData.defenseRows,
       offenseRow: tacticsData.offenseRows,
       formation:formations.formation,
+      selectedTab:0
     };
     
   };
@@ -39,21 +42,15 @@ class App extends Component {
    }
 
    changeFormation = (obj) => {
-     const newState = Object.assign(this.state.changeFormation,obj);
+     const newState = Object.assign(this.state.formation,obj);
      this.setState(newState);
-     //console.log(this.state);
+
+     
    }
   
   render() {
     
-    const DisplayListofFormation =(props)=>{
-      console.log(props.data.values);
-      return(
-     
- 
-        <img  className="imageStyle" src={props.data.urls} alt=''/>
-      )
-    }
+
 
     return (
       
@@ -70,10 +67,11 @@ class App extends Component {
                 
 
               </div>
-              <div label="formations" >
+              <div  label="formations" >
                
 
                       <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
+              </div>
 
               <div label="Sarcosuchus">
                 Nothing to see here, this tab is <em>extinct</em>!
@@ -81,7 +79,7 @@ class App extends Component {
             </Tabs>
             </div>
             <div className="sideView">
-              {/* <FormationContainer data={this.state.formation} /> */}
+              <PreviewContainer data={this.state.formation} />
             </div>
 
         </div>

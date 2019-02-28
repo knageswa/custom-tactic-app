@@ -63,6 +63,27 @@
   border-width: 1px 1px 0 1px;
 }
 
+.formations{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  
+}
+.imageBlock {
+  width: 25%;
+  overflow:hidden; 
+  border:1px solid #000;
+  padding:2px;
+  padding-bottom: 0px;
+  margin:0;
+  
+}
+.imageBlock img{
+  width:100%;
+}
+
+
 .imageStyle {
   height:400px;
   width:600px;

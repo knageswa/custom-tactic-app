@@ -3,12 +3,14 @@ import React from 'react';
 
 
 
-const FormationContainer = (props) =>{
+const PreviewContainer = (props) =>{
     console.log(props.data);
+    const image=props.data.values[props.data.selected];
     return(
-        <img  className="imageStyle" src={props.data.urls} alt=''/>
+        
+        <img  className="imageStyle" src={image.image} alt={image.name}/>
         // <p>images </p>
     )
 }
 
-export default FormationContainer;
+export default PreviewContainer;
