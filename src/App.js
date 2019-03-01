@@ -13,6 +13,9 @@ import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
 import FormationField from './PlayerInstructionsContainer.js';
 import playerInstruction from './PlayerInstruction.json';
+import InstructionMapping from './InstructionMapping.js';
+import RoleMapping from './RoleMapping.json';
+
 
 
 
@@ -31,8 +34,28 @@ class App extends Component {
       activeTab:"Tactics",
       playerInstruction:playerInstruction
     };
-    
+    this.MapPlayerToInstruction();
   };
+  const MapPlayerToInstruction=()=>{
+    let obj={};
+    obj.activePlayer={x:"",y:""};
+    obj.players={};
+    let activePlayers = this.state.formation.values.players;
+    activePlayers.forEach(element => {
+      let player=element.coordinates;
+      let roles=coordinates.find((playerRole)=>
+        playerRole.x === player.x && playerRole.y === player.y
+      ).roles;
+      let activeRole=roles[0];
+      console.log(activeRole);
+      //InstructionMapping
+      //obj.players.push()
+      
+    });
+
+
+
+  }
 
   changeTab = (obj)=>{
     const newState = Object.assign(this.state, obj);

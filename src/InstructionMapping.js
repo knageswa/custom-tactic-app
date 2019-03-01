@@ -1,383 +1,647 @@
-import {Instructions,Roles} from './Enum.List.js';
-
+import {Instructions,Roles} from './EnumList.js';
+/* 
 const mapping = 
    [
-        {role:Roles.GK, 
-            instructions:[    
-                        [Instructions.AttackingRuns]:[]
-                        [Instructions.AttackingSupport]:
-                        [Instructions.ChanceCreation]:
-                        [Instructions.DefensiveBehaviour]:
-                        [Instructions.DefensivePosition]:
-                        [Instructions.DefensiveSupport]:
-                        [Instructions.Interception]:
-                        [Instructions.PositionFreedom]:
-                        [Instructions.SupportOnCrosses]:
-                        [Instructions.SupportRuns]:
-                        [Instructions.RunType]:
-                        ]
-        {role:Roles.LWB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+
+        {///role:Roles.LWB, 
+            instructions:[
+            [Instructions.AttackingRuns]:
+            [
+                "Join the Attack",
+                "Balanced Attack",
+                "Stay back while Defending"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.RunType]:
+            [
+                "inverted",
+                "Mixed Attack",
+                "Overlap"
+            ]
  
         ]},
         {role:Roles.LB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [Instructions.AttackingRuns]:
+                [
+                    "Join the Attack",
+                    "Balanced Attack",
+                    "Stay back while Defending"
+                ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.RunType]:
+            [
+                "inverted",
+                "Mixed Attack",
+                "Overlap"
+            ]
 
         ]},
         {role:Roles.LCB, instructions:[
-            [Instructions.AttackingRuns]:[]
+            [Instructions.AttackingRuns]:
+            [
+
+            ],
             [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [
+                "Stay back while Attacking",
+                "Balanced Attack",
+                "Get Forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
        
         ]},
         {role:Roles.CB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
-            [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [Instructions.AttackingRuns]:[],
+            [Instructions.AttackingSupport]:[],
+ 
+            [Instructions.ChanceCreation]:[],
+            [Instructions.DefensiveBehaviour]:[],
+            [Instructions.DefensivePosition]:[],
+            [Instructions.DefensiveSupport]:[],
+            [Instructions.Interception]:[],
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
+            [Instructions.PositionFreedom]:[],
+            [Instructions.SupportOnCrosses]:[],
+            [Instructions.SupportRuns]:[],
+            [Instructions.RunType]:[]
            
         ]},
         {role:Roles.SW, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
-            [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [Instructions.AttackingRuns]:[],
+            [Instructions.AttackingSupport]:[],
+
+            [Instructions.ChanceCreation]:[],
+            [Instructions.DefensiveBehaviour]:][],
+            [Instructions.DefensivePosition]:][],
+            [Instructions.DefensiveSupport]:[],
+            [Instructions.Interception]:[],
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
+            [Instructions.PositionFreedom]:[],
+            [Instructions.SupportOnCrosses]:[],
+            [Instructions.SupportRuns]:[],
+            [Instructions.RunType]:[],
          
         ]},
         {role:Roles.RCB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
-            [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [Instructions.AttackingRuns]:[],
+            [Instructions.AttackingSupport]:[],
+            [
+                "Stay back while Attacking",
+                "Join the attack",
+                "Play as Striker"
+            ],
+            [Instructions.ChanceCreation]:[],
+            [Instructions.DefensiveBehaviour]:[],
+            [Instructions.DefensivePosition]:[],
+            [Instructions.DefensiveSupport]:[],
+            [Instructions.Interception]:[],
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
+            [Instructions.PositionFreedom]:[],
+            [Instructions.SupportOnCrosses]:[],
+            [Instructions.SupportRuns]:[],
+            [Instructions.RunType]:][],
 
         ]},
         {role:Roles.RB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [Instructions.AttackingRuns]:
+            [
+                "Join the Attack",
+                "Balanced Attack",
+                "Stay back while Defending"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
+
             [Instructions.RunType]:
+            [
+                "inverted",
+                "Mixed Attack",
+                "Overlap"
+            ],
 
         ]},
         {role:Roles.RWB, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [Instructions.AttackingRuns]:
+            [
+                "Join the Attack",
+                "Balanced Attack",
+                "Stay back while Defending"
+            ],
+            
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.RunType]:
+            [
+                "inverted",
+                "Mixed Attack",
+                "Overlap"
+            ],
 
         ]},
         {role:Roles.CDM, instructions:[
-            [Instructions.AttackingRuns]:[]
             [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
+            [
+                "Stay back while Attacking",
+                "Balanced Attack",
+                "Get Forward"
+            ],
             [Instructions.DefensiveBehaviour]:
+            [
+                "cut passing lanes",
+                "balanced Defense",
+                "Man mark"
+            ],
             [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [
+                "cover center",
+                "cover wing"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ],
 
         ]},
         {role:Roles.LM, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
             [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [
+                "Stay Wide",
+                "Balanced",
+                "Cut Inside"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+                        [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ],
             [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Come Short",
+                "Get in Behind"
+            ]
 
         ]},
         {role:Roles.LCM, instructions:[
-            [Instructions.AttackingRuns]:[]
             [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
+            [                
+            "Stay back while Attacking",
+            "Balanced Attack",
+            "Get Forward"
+            ],
             [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [
+                "cover center",
+                "cover wing"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
         ]},
         {role:Roles.CM, instructions:[
-            [Instructions.AttackingRuns]:[]
             [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
+            [
+            "Stay back while Attacking",
+            "Balanced Attack",
+            "Get Forward"
+            ],
             [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [
+                "cover center",
+                "cover wing"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
 
         ]},
         {role:Roles.RCM, instructions:[
-            [Instructions.AttackingRuns]:[]
             [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
+            [
+                "Stay back while Attacking",
+                "Balanced Attack",
+                "Get Forward"
+            ],
             [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
+            [
+                "cover center",
+                "cover wing"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ]
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
  
         ]},
         {role:Roles.RM, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
             [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [
+                "Stay Wide",
+                "Balanced",
+                "Cut Inside"
+
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.SupportOnCrosses]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ],
             [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Come Short",
+                "Get in Behind"
+            ]
 
         ]},
         {role:Roles.LW, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
             [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [
+                "cut inside",
+                "balanced Width",
+                "stay wide",
+                "Free Roam"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.SupportOnCrosses]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ],
             [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Come Short",
+                "Get in Behind",
+                "Target Man"
+            ]
         ]},
         {role:Roles.LAM, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
 
         ]},
         {role:Roles.CAM, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ],
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
+            
         ]},
         {role:Roles.RAM, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.PositionFreedom]:
+            [
+                "Free Roam",
+                "Stick to Position"
+            ]
             [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
- 
-        ]},
-        {role:Roles.LW, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
-            [Instructions.DefensiveSupport]:
-            [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ]
         ]},
         {role:Roles.RW, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
             [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [
+                "cut inside",
+                "balanced Width",
+                "stay wide",
+                "Free Roam"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ],
             [Instructions.SupportOnCrosses]:
+            [
+                "Get into The Box for Cross",
+                "Balanced Crossing runs",
+                "Stay on Edge of box for cross"
+            ],
             [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Come Short",
+                "Get in Behind",
+                "Target Man"
+            ]
 
         ]},
         {role:Roles.LF, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
         ]},
         {role:Roles.CF, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
 
         ]},
         {role:Roles.RF, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-:
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
         ]},
         {role:Roles.LS, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
         ]},
         {role:Roles.ST, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
         ]},
         {role:Roles.RS, instructions:[
-            [Instructions.AttackingRuns]:[]
-            [Instructions.AttackingSupport]:
-            [Instructions.ChanceCreation]:
-            [Instructions.DefensiveBehaviour]:
-            [Instructions.DefensivePosition]:
+            [Instructions.AttackingRuns]:
+            [
+                "Get In Behind",
+                "Mixed Attack",
+                "Target Man",
+                "False 9"
+            ],
             [Instructions.DefensiveSupport]:
+            [
+                "come back on Defense",
+                "Basic Defense Support",
+                "stay forward"
+            ],
             [Instructions.Interception]:
-            [Instructions.PositionFreedom]:
-            [Instructions.SupportOnCrosses]:
-            [Instructions.SupportRuns]:
-            [Instructions.RunType]:
-
+            [
+                "Aggressive Interceptions",
+                "Normal Interceptions",
+                "conservative Interceptions"
+            ]
         ]}
     ];
+ */

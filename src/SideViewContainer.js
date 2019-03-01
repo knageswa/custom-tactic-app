@@ -1,4 +1,5 @@
 import React from 'react';
+import individualPlayerInstruction from './individualPlayerInstruction.js';
 
 
 
@@ -43,11 +44,11 @@ const displayFormation = (props)=>{
 
 
 const displayPlayerInstructions = (props)=>{
-
+    console.log(props);
     ///coordinates origin bottom left
     return(
         <div>
-        displayPlayerInstructions   
+            <individualPlayerInstruction  /> 
         </div>
 
     )
