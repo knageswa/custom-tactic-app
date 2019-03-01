@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const switchTabs=(props) => {
-
+    
     switch(props.activeTab){
         case "Tactics":
             return displayTactics(props);

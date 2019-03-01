@@ -12,7 +12,7 @@ import tacticsData from './tacticsData.json';
 import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
 import FormationField from './PlayerInstructionsContainer.js';
-
+import playerInstruction from './PlayerInstruction.json';
 
 
 
@@ -21,12 +21,15 @@ class App extends Component {
 
   constructor(){
     super();
+    console.log(playerInstruction);
     this.state = {
+      
       defenseRow: tacticsData.defenseRows,
       offenseRow: tacticsData.offenseRows,
       formation:formations.formation,
       selectedTab:0,
-      activeTab:"Tactics"
+      activeTab:"Tactics",
+      playerInstruction:playerInstruction
     };
     
   };
@@ -56,6 +59,10 @@ class App extends Component {
 
      
    }
+
+   changePlayerIntructions=(obj)=>{
+      console.log(obj);
+   }
    
   
   render() {
@@ -84,7 +91,7 @@ class App extends Component {
               </div>
 
               <div label="Player Instructions">
-                <PlayerInstructionsContainer />
+                <FormationField data={this.state.formation.values[this.state.formation.selected]} onChange={this.changePlayerIntructions}  />
               </div>
             </Tabs>
             </div>

@@ -1,53 +1,80 @@
-import react from 'react';
-import coodinates from './RoleMapping.json';
+import React from 'react';
+import roleMapping from './RoleMapping.json';
+import Instructions from './EnumList.js';
 
 
 
 
 //takes object that contains  coodinates for field
-const PlayerPosition=(props)=>{
+const PlayerPosition=(props,coordinates)=>{
+    
+    let players = props.data.players;
+    let coordinate =coordinates;
+    let result=validateCoordinate(players,coordinate);
 
-    if (validateCoordinate(props)){
+
+    const clickHandler=(e)=>{
+
+        let tokens=e.target.id.split(',');
+        
+        let newObj = {};
+        newObj.x = tokens[0];
+        newObj.y = tokens[1];
+        console.log(newObj);
+        props.onChange(newObj);
+        }
+    
+    if (result){
         return(
-            <td className="cell">
-                <i className="far fa-circle fa-3x"></i>
+            <td key={""+coordinate.x+coordinate.y} className="cell" onClick= {clickHandler}>
+            {<i className="far fa-circle fa-3x"  id={coordinate.x+','+coordinate.y} ></i>}
             </td>
         )
     }
     else {
         return(
-        <td className="cell">
+        <td key={""+coordinate.x+coordinate.y}  className="cell">
+        {<i style={{visibility:"hidden"}} className="far fa-circle fa-3x"></i>}
         </td>
     )}
 
 }
 
-const validateCoordinate=(props)=>{
-    let found=coordinates.find(
-        (element)=> return (element.x===props.x && y===props.y)
+const validateCoordinate=(players,coordinate)=>{
+ 
+    let found=players.find(
+        (element)=> (element.coordinates.x===coordinate.x && element.coordinates.y===coordinate.y)
 
     );
     return found;
+}
+
+const createTable=(props)=>{
+    let table= [];
+    
+    for(let i=6;i>=0;i--){
+       
+        let row=[];
+        for(let j=0;j<5;j++){
+            row.push(PlayerPosition(props , {'x':j,'y':i}));
+        }
+        table.push(<tr key={i} >{row}</tr>);
     }
+    return table;
+}
 
 //parent component
 const FormationField=(props)=>{
-    console.log(props);
+    console.log(Instructions);
     return(
         <table>
-        {
-                for(let i=0;i<7;i++){
-                    <tr>
-                    for(let j=0;j++;j<5){
-                        PlayerPosition({x:i,y:j})
-                    }
-                    </tr>
-                }
-        }
+            <tbody>
+                {createTable(props)}
+            </tbody>
         </table>
+
     )
 
-
-
-
 }
+
+export default FormationField;
