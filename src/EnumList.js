@@ -1,4 +1,4 @@
- const Instructions =Object.freeze({
+ export const Instructions =Object.freeze({
  /*    AttackingRuns: Symbol("Attacking Runs"),
     AttackingSupport:Symbol("Attacking Support"),
     ChanceCreation:Symbol("Chance Creation"),
@@ -27,6 +27,7 @@ export const Roles = Object.freeze ({
     GK:Symbol("GK"),
     RWB:Symbol("RWB"),
     RCB:Symbol("RCB"),
+    CB:Symbol("CB"),
     LCB:Symbol("LCB"),
     LB:Symbol("LB"),
     LWB:Symbol("LWB"),

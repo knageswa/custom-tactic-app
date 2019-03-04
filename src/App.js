@@ -24,7 +24,7 @@ class App extends Component {
 
   constructor(){
     super();
-    console.log(playerInstruction);
+    //console.log(playerInstruction);
     this.state = {
       
       defenseRow: tacticsData.defenseRows,
@@ -32,29 +32,57 @@ class App extends Component {
       formation:formations.formation,
       selectedTab:0,
       activeTab:"Tactics",
-      playerInstruction:playerInstruction
+      playerInstruction:playerInstruction,
+      activePlayers:""
     };
-    this.MapPlayerToInstruction();
+    this.state.activePlayers=this.MapPlayerToInstruction();
   };
-  const MapPlayerToInstruction=()=>{
+  MapPlayerToInstruction(){
     let obj={};
     obj.activePlayer={x:"",y:""};
-    obj.players={};
-    let activePlayers = this.state.formation.values.players;
+    obj.players=[];
+    let activePlayers = this.state.formation.values[0].players;
+    
+    //console.log(InstructionMapping);
     activePlayers.forEach(element => {
       let player=element.coordinates;
-      let roles=coordinates.find((playerRole)=>
-        playerRole.x === player.x && playerRole.y === player.y
-      ).roles;
-      let activeRole=roles[0];
-      console.log(activeRole);
-      //InstructionMapping
-      //obj.players.push()
+      let playerroles=(InstructionMapping.find((playerRole)=>{
+
+        return playerRole.x === player.x && playerRole.y === player.y;
+      }
+      ))=== undefined ? "":(InstructionMapping.find((playerRole)=>{
+
+        return playerRole.x === player.x && playerRole.y === player.y;
+      }
+      ));
       
-    });
+     
 
+     
+      var activeRole =playerroles;
+      //console.log(activeRole);
+      //InstructionMapping
 
+      // let playerInst =InstructionMapping.mapping.find(player=>
+      // {
+      //   console.log(player);
+      //   console.log(activeRole);
+      //   return activeRole===player.role;
+      // }
+      // );
+    //console.log(playerInst);
+    obj.players.push(activeRole);
+    
 
+      
+     });
+     obj.activePlayer.y= obj.players[10].y;
+     obj.activePlayer.x=obj.players[10].x;
+     
+     
+     //console.log(obj);
+
+     return obj;
   }
 
   changeTab = (obj)=>{

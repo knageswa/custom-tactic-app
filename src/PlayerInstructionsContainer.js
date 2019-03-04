@@ -1,5 +1,5 @@
 import React from 'react';
-import roleMapping from './RoleMapping.json';
+
 import Instructions from './EnumList.js';
 
 

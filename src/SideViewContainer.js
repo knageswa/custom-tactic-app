@@ -1,5 +1,5 @@
 import React from 'react';
-import individualPlayerInstruction from './individualPlayerInstruction.js';
+ import Instruction from './IndividualPlayerInstruction.js';
 
 
 
@@ -44,17 +44,19 @@ const displayFormation = (props)=>{
 
 
 const displayPlayerInstructions = (props)=>{
-    console.log(props);
+    
     ///coordinates origin bottom left
+    
     return(
         <div>
-            <individualPlayerInstruction  /> 
+            <Instruction data={props.activePlayers.players} activePlayer={props.activePlayers.activePlayer} /> 
         </div>
 
     )
 }
 
 const displayPlayerRoles = (props)=>{
+    console.log(props);
     return(
         <div>
         displayPlayerRoles  
