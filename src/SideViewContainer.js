@@ -1,5 +1,5 @@
 import React from 'react';
-import individualPlayerInstruction from './individualPlayerInstruction.js';
+import individualPlayerInstruction from './IndividualPlayerInstruction.js';
 
 
 

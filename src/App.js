@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Tabs from './Tabs';
 
 
-
-
-
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
 import PreviewContainer  from './SideViewContainer.js';
@@ -24,7 +21,7 @@ class App extends Component {
 
   constructor(){
     super();
-    console.log(playerInstruction);
+    //console.log(playerInstruction);
     this.state = {
       
       defenseRow: tacticsData.defenseRows,
@@ -36,23 +33,38 @@ class App extends Component {
     };
     this.MapPlayerToInstruction();
   };
-  const MapPlayerToInstruction=()=>{
+  MapPlayerToInstruction(){
     let obj={};
     obj.activePlayer={x:"",y:""};
-    obj.players={};
-    let activePlayers = this.state.formation.values.players;
+    obj.players=[];
+    let activePlayers = this.state.formation.values[0].players;
     activePlayers.forEach(element => {
       let player=element.coordinates;
-      let roles=coordinates.find((playerRole)=>
-        playerRole.x === player.x && playerRole.y === player.y
+      console.log(RoleMapping.coordinates);
+      let roles=RoleMapping.coordinates.find((playerRole)=>
+        {
+          console.log(playerRole.x === player.x && playerRole.y === player.y);
+
+          return (playerRole.x === player.x && playerRole.y === player.y);
+          //console.log(playerRole);
+          
+        }
       ).roles;
-      let activeRole=roles[0];
-      console.log(activeRole);
-      //InstructionMapping
-      //obj.players.push()
+
+      let activeRole=roles;
+      console.log(player);
+     console.log(activeRole);
+    // console.log(InstructionMapping);
+      // let playerInst= InstructionMapping.find((player)=>{
+
+      //   let value = player.role===activeRole
+      //   return value === undefined ? "undef" :true ;
+      // });
+      //console.log(playerInst);
+     // obj.players.push(playerInst);
       
     });
-
+    //console.log(obj);
 
 
   }

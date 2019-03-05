@@ -1,5 +1,8 @@
- const Instructions =Object.freeze({
- /*    AttackingRuns: Symbol("Attacking Runs"),
+import React from 'react';
+
+//const Symbol = (name) => Object.freeze({toString: () => name});
+export const Instructions =Object.freeze({
+    AttackingRuns: Symbol("Attacking Runs"),
     AttackingSupport:Symbol("Attacking Support"),
     ChanceCreation:Symbol("Chance Creation"),
     DefensiveBehaviour:Symbol("Defensive Behaviour"),
@@ -9,18 +12,8 @@
     PositionFreedom:Symbol("Position Freedom"),
     SupportOnCrosses:Symbol("Support on Crosses"),
     SupportRuns:Symbol("Support Runs"),
-    RunType:Symbol("Run Type"), */
-    AttackingRuns: ("Attacking Runs"),
-    AttackingSupport:("Attacking Support"),
-    ChanceCreation:("Chance Creation"),
-    DefensiveBehaviour:("Defensive Behaviour"),
-    DefensivePosition:("Defensive Position"),
-    DefensiveSupport:("Defensive Support"),
-    Interception:("Interception"),
-    PositionFreedom:("Position Freedom"),
-    SupportOnCrosses:("Support on Crosses"),
-    SupportRuns:("Support Runs"),
-    RunType:("Run Type"),
+    RunType:Symbol("Run Type"),
+
 });
 
 export const Roles = Object.freeze ({
