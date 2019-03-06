@@ -4,7 +4,7 @@ import React from 'react';
 
 
 const switchTabs=(props) => {
-    
+   
     switch(props.activeTab){
         case "Tactics":
             return displayTactics(props);
@@ -43,13 +43,19 @@ const displayFormation = (props)=>{
 
 
 
+
 const displayPlayerInstructions = (props)=>{
     
+    const updateValue=(obj)=> {
+        //console.log(obj); 
+        props.onChange(obj);
+    
+    }
     ///coordinates origin bottom left
     
     return(
         <div>
-            <Instruction data={props.activePlayers.players} activePlayer={props.activePlayers.activePlayer} /> 
+            <Instruction data={props.data.activePlayers.players} activePlayer={props.data.activePlayers.activePlayer} onChange={updateValue} /> 
         </div>
 
     )
@@ -67,8 +73,20 @@ const displayPlayerRoles = (props)=>{
 
 const PreviewContainer = (props) =>{
     
-    
-    return switchTabs(props.data);
+    console.log(props);
+    //return switchTabs(props.data);
+    switch(props.data.activeTab){
+        case "Tactics":
+            return displayTactics(props);
+        case "Formations":
+            return displayFormation(props.formation);
+        case "Player Instructions":
+            return displayPlayerInstructions(props);
+        case "Player Roles":
+            return displayPlayerRoles(props);
+        default:
+            return (<h1>error with activeTab</h1>);
+    }
 }
 
 export default PreviewContainer;

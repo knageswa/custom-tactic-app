@@ -114,6 +114,15 @@ class App extends Component {
    changePlayerIntructions=(obj)=>{
       console.log(obj);
    }
+
+   updateIndividualPlayerIntructions=(obj)=>{
+     console.log(obj);
+     console.log(this.state.activePlayers);
+     let actplayers= this.state.activePlayers;
+     actplayers.find((player)=>{
+          return player.x===actplayers.activePlayer.x && player.y ===actplayers.activePlayer.y;
+     })
+   }
    
   
   render() {
@@ -147,7 +156,7 @@ class App extends Component {
             </Tabs>
             </div>
             <div className="sideView">
-              <PreviewContainer data={this.state} />
+              <PreviewContainer data={this.state} onChange={this.updateIndividualPlayerIntructions}/>
             </div>
 
         </div>

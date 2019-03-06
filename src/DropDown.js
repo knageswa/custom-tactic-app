@@ -6,7 +6,7 @@ import 'react-dropdown/style.css';
 const DropDown =(props)=> {
     
     const {values,selected} = props.data;
-    
+    //console.log(props.data);
 
     const handleChange = (e) => {
         console.log(e.value);
@@ -17,7 +17,8 @@ const DropDown =(props)=> {
         newObj.values = values;
         props.onChange(props.dkey, newObj);
       }
-      
+    //   console.log(values);
+    //   console.log(selected);
         return (
             
             <Dropdown options={values} onChange={handleChange} value={values[selected]} placeholder="Select an option" />
