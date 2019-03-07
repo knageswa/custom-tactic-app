@@ -43,7 +43,6 @@ class App extends Component {
     let obj={};
     obj.x= this.state.activePlayers[10].x;
     obj.y= this.state.activePlayers[10].y;
-    console.log(obj);
 
     return obj;
   }
@@ -71,7 +70,7 @@ class App extends Component {
 
       
      });
-     console.log(players);
+     
      return players;
   }
 
@@ -106,9 +105,41 @@ class App extends Component {
    }
 
    updateIndividualPlayerIntructions=(obj)=>{
+    let nameOfInstr=Object.keys(obj)[1];
      console.log(obj);
-     console.log(this.state.activePlayers);
+    
 
+     //console.log(this.state.activePlayers);
+     //console.log(this.state.selectedPlayer);
+     var index= this.state.activePlayers.findIndex((player)=>{
+        return player.x ===this.state.selectedPlayer.x && player.y===this.state.selectedPlayer.y;
+     })
+     console.log(index);
+     if(index=== -1)
+      ///handle error
+      console.log("error");
+      else {
+      let prevObj=this.state.activePlayers[index].instructions.find((ob)=>{
+        let value= Object.keys(ob)[0]===nameOfInstr;
+        return value;
+      });
+      //set obj to selected value
+      //prevObj.selected=obj.selected;
+      console.log(prevObj);
+        this.setState({
+          activePlayers:[
+            ...this.state.activePlayers.slice(0,index),
+            Object.assign({},this.state.activePlayers[index].instructions.find((ob)=>{
+              let value= Object.keys(ob)[0]===nameOfInstr;
+              console.log(ob);
+              return value;
+            }), obj),
+            ...this.state.activePlayers.slice(index+1)
+          ]
+        })
+      }
+     
+        console.log(this.state.activePlayers);
    }
    
   

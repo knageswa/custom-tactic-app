@@ -5,7 +5,7 @@ import DropDown from './DropDown.js';
 
 const Instruction= (props)=>{
     let players=props.data;
-    //console.log(props.activePlayer);
+    console.log(props.activePlayer);
 
     const inst= players.find((obj)=>{
         return props.activePlayer.x===obj.x && props.activePlayer.y===obj.y;
@@ -17,7 +17,11 @@ const Instruction= (props)=>{
 
     const upDateValue= (key,value)=>{
         let obj={};
-        obj[key]=value;
+        //obj[key]=value;
+        
+        obj=value;
+        obj.key=key;
+        console.log(key);
         console.log(obj);
         props.onChange(obj);
     }
