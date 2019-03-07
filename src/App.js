@@ -32,15 +32,24 @@ class App extends Component {
       formation:formations.formation,
       selectedTab:0,
       activeTab:"Tactics",
-      playerInstruction:playerInstruction,
-      activePlayers:""
+      activePlayers:"",
+      selectedPlayer:""
     };
     this.state.activePlayers=this.MapPlayerToInstruction();
+    this.state.selectedPlayer=this.setSelectedPlayerForInstruction();
   };
-  MapPlayerToInstruction(){
+
+  setSelectedPlayerForInstruction(){
     let obj={};
-    obj.activePlayer={x:"",y:""};
-    obj.players=[];
+    obj.x= this.state.activePlayers[10].x;
+    obj.y= this.state.activePlayers[10].y;
+    console.log(obj);
+
+    return obj;
+  }
+  MapPlayerToInstruction(){
+
+    let players=[];
     let activePlayers = this.state.formation.values[0].players;
     
     //console.log(InstructionMapping);
@@ -56,33 +65,14 @@ class App extends Component {
       }
       ));
       
-     
 
-     
-      var activeRole =playerroles;
-      //console.log(activeRole);
-      //InstructionMapping
-
-      // let playerInst =InstructionMapping.mapping.find(player=>
-      // {
-      //   console.log(player);
-      //   console.log(activeRole);
-      //   return activeRole===player.role;
-      // }
-      // );
-    //console.log(playerInst);
-    obj.players.push(activeRole);
+    players.push(playerroles);
     
 
       
      });
-     obj.activePlayer.y= obj.players[10].y;
-     obj.activePlayer.x=obj.players[10].x;
-     
-     
-     //console.log(obj);
-
-     return obj;
+     console.log(players);
+     return players;
   }
 
   changeTab = (obj)=>{
@@ -118,10 +108,7 @@ class App extends Component {
    updateIndividualPlayerIntructions=(obj)=>{
      console.log(obj);
      console.log(this.state.activePlayers);
-     let actplayers= this.state.activePlayers;
-     actplayers.find((player)=>{
-          return player.x===actplayers.activePlayer.x && player.y ===actplayers.activePlayer.y;
-     })
+
    }
    
   

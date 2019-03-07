@@ -55,7 +55,7 @@ const displayPlayerInstructions = (props)=>{
     
     return(
         <div>
-            <Instruction data={props.data.activePlayers.players} activePlayer={props.data.activePlayers.activePlayer} onChange={updateValue} /> 
+            <Instruction data={props.data.players} activePlayer={props.data.selectedPlayer} onChange={updateValue} /> 
         </div>
 
     )
