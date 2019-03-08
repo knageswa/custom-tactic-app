@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Tabs from './Tabs';
 
 
-
-
-
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
 import PreviewContainer from './SideViewContainer.js';
@@ -40,6 +37,7 @@ class App extends Component {
     this.state.selectedPlayer = this.setSelectedPlayerForInstruction();
   };
 
+
   setSelectedPlayerForInstruction() {
     let obj = {};
     obj.x = this.state.activePlayers[10].x;
@@ -70,6 +68,7 @@ class App extends Component {
       players.push(playerroles);
     
       
+
 
 
     });

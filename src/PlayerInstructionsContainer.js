@@ -65,7 +65,7 @@ const createTable=(props)=>{
 
 //parent component
 const FormationField=(props)=>{
-    console.log(Instructions);
+   // console.log(Instructions);
     return(
         <table>
             <tbody>

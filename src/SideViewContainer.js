@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Instruction from './IndividualPlayerInstruction.js';
 import './sideViewContainer.css';
+
 
 
  const switchTabs=(props) => {
