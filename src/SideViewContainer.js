@@ -63,7 +63,7 @@ const PreviewContainer = (props) =>{
         case "Tactics":
             return displayTactics(props);
         case "Formations":
-            return displayFormation(props.formation);
+            return displayFormation(props.data.formation);
         case "Player Instructions":
             return displayPlayerInstructions(props);
         case "Player Roles":

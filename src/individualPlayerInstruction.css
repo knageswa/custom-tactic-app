@@ -1,0 +1,19 @@
+.instructionBlock{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  
+    
+  }
+  .instructionImage {
+    width: 25%;
+    overflow:hidden; 
+    border:1px solid #000;
+    padding:2px;
+    padding-bottom: 0px;
+    margin:0;
+    
+  }
+  .imageBlock img{
+    width:100%;
+  }

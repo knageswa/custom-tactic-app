@@ -1,6 +1,6 @@
 import React from 'react';
 import DropDown from './DropDown.js';
-
+import './individualPlayerInstruction.css';
 
 
 const Instruction = (props) => {
@@ -41,11 +41,17 @@ const Instruction = (props) => {
 
 
                 return (
-                    <div key={index} >
-                        <DropDown data={newObj} dkey={keyDescript} onChange={upDateValue} />
-
+                    
+                    <div className="instructionBlock" key={index} >
+                    <div className="instructionImage">
 
                     </div>
+                    <div className="instructDropDown">
+                        <DropDown data={newObj} dkey={keyDescript} onChange={upDateValue} />
+                    </div>
+
+                    </div>
+                    
                 )
 
 

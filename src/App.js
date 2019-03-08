@@ -120,7 +120,7 @@ class App extends Component {
     let instructIndex= this.state.activePlayers[index].instructions.findIndex((ob)=>{
       let keys=Object.keys(ob);
       console.log(keys);
-      return keys[0]==obj.key;
+      return keys[0]===obj.key;
     } )
     
     let prevState = this.state.activePlayers;
