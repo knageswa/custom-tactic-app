@@ -109,20 +109,21 @@ class App extends Component {
 
   updateIndividualPlayerIntructions = (obj) => {
 
-    console.log(obj);
+  
+    //index points to selected player for changing instructions
     var index = this.state.activePlayers.findIndex((player) => {
       return player.x === this.state.selectedPlayer.x && player.y === this.state.selectedPlayer.y;
     })
-    console.log(index);
+    
     //find index of array where instruction is equal to obj.key
+    //position of instruction in the instructions array.
     let instructIndex= this.state.activePlayers[index].instructions.findIndex((ob)=>{
       let keys=Object.keys(ob);
       console.log(keys);
       return keys[0]==obj.key;
     } )
-    console.log(instructIndex);
+    
     let prevState = this.state.activePlayers;
-    console.log(prevState);
     prevState[index].selectedInstruction[instructIndex]=obj.selected;
 
   
