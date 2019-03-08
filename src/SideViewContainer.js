@@ -1,8 +1,24 @@
 import React from 'react';
- import Instruction from './IndividualPlayerInstruction.js';
+import Instruction from './IndividualPlayerInstruction.js';
+import './sideViewContainer.css';
 
 
+ const switchTabs=(props) => {
+    console.log(props);
+    switch(props.data.activeTab){
+        case "Tactics":
+            return displayTactics(props.data);
+        case "Formations":
+            return displayFormation(props.data.formation);
+        case "Player Instructions":
+            return displayPlayerInstructions(props);
+        case "Player Roles":
+            return displayPlayerRoles(props);
+        default:
+            return (<h1>error with activeTab</h1>);
+    }
 
+}
 
 const displayTactics= (props) => {
     return(
@@ -21,7 +37,7 @@ const displayFormation = (props)=>{
         <div>
         <img  className="imageStyle" src={image.image} alt={image.name}/>
         </div>
-
+        
     )
 }
 
@@ -29,9 +45,9 @@ const displayFormation = (props)=>{
 
 
 const displayPlayerInstructions = (props)=>{
-    
+   // console.log(props);
     const updateValue=(obj)=> {
-        //console.log(obj); 
+        
         props.onChange(obj);
     
     }
@@ -46,12 +62,12 @@ const displayPlayerInstructions = (props)=>{
 }
 
 const displayPlayerRoles = (props)=>{
-    console.log(props);
+    console.log(props.data);
     return(
         <div>
         displayPlayerRoles  
         </div>
-
+    
     )
 }
 
@@ -59,18 +75,13 @@ const PreviewContainer = (props) =>{
     
     console.log(props);
     //return switchTabs(props.data);
-    switch(props.data.activeTab){
-        case "Tactics":
-            return displayTactics(props);
-        case "Formations":
-            return displayFormation(props.data.formation);
-        case "Player Instructions":
-            return displayPlayerInstructions(props);
-        case "Player Roles":
-            return displayPlayerRoles(props);
-        default:
-            return (<h1>error with activeTab</h1>);
-    }
+    
+    return(
+        <div className="sideViewContainer">
+            <h1>{props.data.activeTab}</h1> 
+            {switchTabs(props)}
+        </div>
+        )
 }
 
 export default PreviewContainer;

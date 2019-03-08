@@ -18,8 +18,8 @@ const PlayerPosition=(props,coordinates)=>{
         let tokens=e.target.id.split(',');
         
         let newObj = {};
-        newObj.x = tokens[0];
-        newObj.y = tokens[1];
+        newObj.x = parseInt(tokens[0],10);
+        newObj.y = parseInt(tokens[1],10);
         console.log(newObj);
         props.onChange(newObj);
         }

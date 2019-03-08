@@ -69,7 +69,7 @@ class App extends Component {
 
       players.push(playerroles);
     
-      console.log(playerroles);
+      
 
 
     });
@@ -103,13 +103,14 @@ class App extends Component {
 
   }
 
-  changePlayerIntructions = (obj) => {
-    console.log(obj);
+  changePlayerIntructions = (obj) => { ////sets selected player to view instructions
+    
+    const newState = Object.assign(this.state.selectedPlayer,obj);
+    this.setState(newState);
   }
 
   updateIndividualPlayerIntructions = (obj) => {
 
-  
     //index points to selected player for changing instructions
     var index = this.state.activePlayers.findIndex((player) => {
       return player.x === this.state.selectedPlayer.x && player.y === this.state.selectedPlayer.y;
@@ -119,7 +120,7 @@ class App extends Component {
     //position of instruction in the instructions array.
     let instructIndex= this.state.activePlayers[index].instructions.findIndex((ob)=>{
       let keys=Object.keys(ob);
-      console.log(keys);
+      //console.log(keys);
       return keys[0]===obj.key;
     } )
     
