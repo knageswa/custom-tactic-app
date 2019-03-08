@@ -3,22 +3,6 @@ import React from 'react';
 
 
 
-const switchTabs=(props) => {
-   
-    switch(props.activeTab){
-        case "Tactics":
-            return displayTactics(props);
-        case "Formations":
-            return displayFormation(props.formation);
-        case "Player Instructions":
-            return displayPlayerInstructions(props);
-        case "Player Roles":
-            return displayPlayerRoles(props);
-        default:
-            return (<h1>error with activeTab</h1>);
-    }
-
-}
 
 const displayTactics= (props) => {
     return(

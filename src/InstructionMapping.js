@@ -8,6 +8,7 @@ import{
        role:Roles.LB,
        "x":0,
        "y":1,
+       selectedInstruction:[1,1,1],
        instructions:[  
           {  
 
@@ -18,7 +19,7 @@ import{
                 "Balanced Attack",
                 "Stay back while Defending"
              ],
-             selected:0
+            
           },
           {  
              [  
@@ -28,7 +29,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -38,7 +39,7 @@ import{
                 "Mixed Attack",
                 "Overlap"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -46,6 +47,7 @@ import{
        role:Roles.LCB,
        "x":1,
        "y":1,
+       selectedInstruction:[1,1],
        instructions:[  
           {             
 
@@ -56,7 +58,7 @@ import{
                 "Balanced Attack",
                 "Get Forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -66,7 +68,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -74,6 +76,7 @@ import{
        role:Roles.CB,
        "x":2,
        "y":1, 
+       selectedInstruction:[1,1],
        instructions:[
         { 
 
@@ -84,7 +87,7 @@ import{
                "Join the attack",
                "Play as Striker"
             ]
-            ,selected:0
+            
          },  
           {  
             [Instructions.Interception]:
@@ -93,7 +96,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+            
           }
  
        ]
@@ -101,7 +104,8 @@ import{
     {  
        role:Roles.RCB,
        "x":3,
-       "y":1,  
+       "y":1, 
+       selectedInstruction:[1,1],
        instructions:[  
           {
 
@@ -112,7 +116,7 @@ import{
                 "Join the attack",
                 "Play as Striker"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -123,7 +127,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           }
  
        ]
@@ -132,6 +136,7 @@ import{
        role:Roles.CDM,
        "x":2,
        "y":2, 
+       selectedInstruction:[1,1,1,1,1,1],
        instructions:[  
           {
  
@@ -142,7 +147,7 @@ import{
                 "Balanced Attack",
                 "Get Forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -152,7 +157,7 @@ import{
                 "balanced Defense",
                 "Man mark"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -161,7 +166,7 @@ import{
                 "cover center",
                 "cover wing"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -171,7 +176,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -180,7 +185,7 @@ import{
                 "Free Roam",
                 "Stick to Position"
              ],
-             selected:0
+            
           },
           {  
              [  
@@ -190,7 +195,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           },
  
        ]
@@ -199,6 +204,7 @@ import{
        role:Roles.LM,
        "x":0,
        "y":3, 
+       selectedInstruction:[1,1,1,1,1,1],
        instructions:[  
           {
  
@@ -209,7 +215,7 @@ import{
                 "Balanced",
                 "Cut Inside"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -219,7 +225,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -229,7 +235,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -238,7 +244,7 @@ import{
                 "Free Roam",
                 "Stick to Position"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -248,7 +254,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -257,7 +263,7 @@ import{
                 "Come Short",
                 "Get in Behind"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -265,6 +271,7 @@ import{
        role:Roles.LCM,
        "x":1,
        "y":3,  
+       selectedInstruction:[1,1,1,1,1,1],
        instructions:[  
           {
 
@@ -275,7 +282,7 @@ import{
                 "Balanced Attack",
                 "Get Forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -284,7 +291,7 @@ import{
                 "cover center",
                 "cover wing"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -294,7 +301,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -303,7 +310,7 @@ import{
                 "Free Roam",
                 "Stick to Position"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -313,7 +320,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -321,6 +328,7 @@ import{
        role:Roles.CM,
        "x":2,
        "y":3, 
+       selectedInstruction:[1,1,1,1,1,1],
        instructions:[  
           {
  
@@ -331,7 +339,7 @@ import{
                 "Balanced Attack",
                 "Get Forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -340,7 +348,7 @@ import{
                 "cover center",
                 "cover wing"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -350,7 +358,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -359,7 +367,7 @@ import{
                 "Free Roam",
                 "Stick to Position"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -369,7 +377,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -377,6 +385,7 @@ import{
        role:Roles.RCM,
        "x":3,
        "y":3,
+       selectedInstruction:[1,1,1,1,1,1],
        instructions:[  
           {
 
@@ -388,7 +397,7 @@ import{
                 "Balanced Attack",
                 "Get Forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -397,7 +406,7 @@ import{
                 "cover center",
                 "cover wing"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -407,7 +416,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -416,7 +425,7 @@ import{
                 "Free Roam",
                 "Stick to Position"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -426,7 +435,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -434,6 +443,7 @@ import{
        role:Roles.RM,
        "x":4,
        "y":3, 
+       selectedInstruction:[1,1,1,1,1],
        instructions:[  
           {
  
@@ -444,7 +454,7 @@ import{
                 "Balanced",
                 "Cut Inside"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -454,7 +464,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -464,7 +474,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -474,7 +484,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -483,7 +493,7 @@ import{
                 "Come Short",
                 "Get in Behind"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -491,6 +501,7 @@ import{
        role:Roles.LW,
        "x":0,
        "y":5, 
+       selectedInstruction:[1,1,1,1,1],
        instructions:[  
           {
  
@@ -502,7 +513,7 @@ import{
                 "stay wide",
                 "Free Roam"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -512,7 +523,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -522,7 +533,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -532,7 +543,7 @@ import{
                 "Balanced Crossing runs",
                 "Stay on Edge of box for cross"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -542,7 +553,7 @@ import{
                 "Get in Behind",
                 "Target Man"
              ],
-             selected:0
+             
           }
        ]
     },
@@ -550,6 +561,7 @@ import{
        role:Roles.LS,
        "x":1,
        "y":6,  
+       selectedInstruction:[1,1,1],
        instructions:[  
           {
 
@@ -561,7 +573,7 @@ import{
                 "Target Man",
                 "False 9"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -571,7 +583,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -581,14 +593,15 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           }
        ]
     },
     {  
        role:Roles.ST,
        "x":2,
-       "y":6,  
+       "y":6, 
+       selectedInstruction:[1,1,1], 
        instructions:[  
           {
 
@@ -600,7 +613,7 @@ import{
                 "Target Man",
                 "False 9"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -610,7 +623,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -620,14 +633,15 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           }
        ]
     },
     {  
        role:Roles.RS,
        "x":3,
-       "y":6,  
+       "y":6, 
+       selectedInstruction:[1,1,1], 
        instructions:[  
           {
 
@@ -639,7 +653,7 @@ import{
                 "Target Man",
                 "False 9"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -649,7 +663,7 @@ import{
                 "Basic Defense Support",
                 "stay forward"
              ],
-             selected:0
+             
           },
           {  
              [  
@@ -659,7 +673,7 @@ import{
                 "Normal Interceptions",
                 "conservative Interceptions"
              ],
-             selected:0
+             
           }
        ]
     }
