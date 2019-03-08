@@ -1,16 +1,16 @@
 
  export const Instructions =Object.freeze({
 
-    AttackingSupport:Symbol("Attacking Support"),
-    ChanceCreation:Symbol("Chance Creation"),
-    DefensiveBehaviour:Symbol("Defensive Behaviour"),
-    DefensivePosition:Symbol("Defensive Position"),
-    DefensiveSupport:Symbol("Defensive Support"),
-    Interception:Symbol("Interception"),
-    PositionFreedom:Symbol("Position Freedom"),
-    SupportOnCrosses:Symbol("Support on Crosses"),
-    SupportRuns:Symbol("Support Runs"),
-    RunType:Symbol("Run Type"),
+    AttackingSupport:("Attacking Support"),
+    ChanceCreation:("Chance Creation"),
+    DefensiveBehaviour:("Defensive Behaviour"),
+    DefensivePosition:("Defensive Position"),
+    DefensiveSupport:("Defensive Support"),
+    Interception:("Interception"),
+    PositionFreedom:("Position Freedom"),
+    SupportOnCrosses:("Support on Crosses"),
+    SupportRuns:("Support Runs"),
+    RunType:("Run Type"),
 
 });
 
