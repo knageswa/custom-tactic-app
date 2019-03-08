@@ -1,8 +1,6 @@
-import React from 'react';
 
-//const Symbol = (name) => Object.freeze({toString: () => name});
-export const Instructions =Object.freeze({
-    AttackingRuns: Symbol("Attacking Runs"),
+ export const Instructions =Object.freeze({
+
     AttackingSupport:Symbol("Attacking Support"),
     ChanceCreation:Symbol("Chance Creation"),
     DefensiveBehaviour:Symbol("Defensive Behaviour"),
@@ -20,6 +18,7 @@ export const Roles = Object.freeze ({
     GK:Symbol("GK"),
     RWB:Symbol("RWB"),
     RCB:Symbol("RCB"),
+    CB:Symbol("CB"),
     LCB:Symbol("LCB"),
     LB:Symbol("LB"),
     LWB:Symbol("LWB"),

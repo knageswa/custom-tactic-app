@@ -43,6 +43,7 @@ const TableData = props =>{
 const TableBody = props => { 
 
     const rows = Object.keys(props.data).map((key,index) => {
+
         return (
             <tr key={index}>
                 <td>{key}</td>                

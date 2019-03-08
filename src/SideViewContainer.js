@@ -1,15 +1,17 @@
 import React from 'react';
-import individualPlayerInstruction from './IndividualPlayerInstruction.js';
+
+import Instruction from './IndividualPlayerInstruction.js';
+import './sideViewContainer.css';
 
 
 
-const switchTabs=(props) => {
-    
-    switch(props.activeTab){
+ const switchTabs=(props) => {
+    console.log(props);
+    switch(props.data.activeTab){
         case "Tactics":
-            return displayTactics(props);
+            return displayTactics(props.data);
         case "Formations":
-            return displayFormation(props.formation);
+            return displayFormation(props.data.formation);
         case "Player Instructions":
             return displayPlayerInstructions(props);
         case "Player Roles":
@@ -37,36 +39,51 @@ const displayFormation = (props)=>{
         <div>
         <img  className="imageStyle" src={image.image} alt={image.name}/>
         </div>
-
+        
     )
 }
 
 
 
+
 const displayPlayerInstructions = (props)=>{
-    console.log(props);
+   // console.log(props);
+    const updateValue=(obj)=> {
+        
+        props.onChange(obj);
+    
+    }
     ///coordinates origin bottom left
+    
     return(
         <div>
-            <individualPlayerInstruction  /> 
+            <Instruction data={props.data.activePlayers} activePlayer={props.data.selectedPlayer} onChange={updateValue} /> 
         </div>
 
     )
 }
 
 const displayPlayerRoles = (props)=>{
+    console.log(props.data);
     return(
         <div>
         displayPlayerRoles  
         </div>
-
+    
     )
 }
 
 const PreviewContainer = (props) =>{
     
+    console.log(props);
+    //return switchTabs(props.data);
     
-    return switchTabs(props.data);
+    return(
+        <div className="sideViewContainer">
+            <h1>{props.data.activeTab}</h1> 
+            {switchTabs(props)}
+        </div>
+        )
 }
 
 export default PreviewContainer;

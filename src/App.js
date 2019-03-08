@@ -4,7 +4,7 @@ import Tabs from './Tabs';
 
 import './App.css';
 import TacticsTabContainer from './TacticsTabContainer.js';
-import PreviewContainer  from './SideViewContainer.js';
+import PreviewContainer from './SideViewContainer.js';
 import tacticsData from './tacticsData.json';
 import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
@@ -16,123 +16,159 @@ import RoleMapping from './RoleMapping.json';
 
 
 
- 
+
+
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
     //console.log(playerInstruction);
     this.state = {
-      
+
       defenseRow: tacticsData.defenseRows,
       offenseRow: tacticsData.offenseRows,
-      formation:formations.formation,
-      selectedTab:0,
-      activeTab:"Tactics",
-      playerInstruction:playerInstruction
+      formation: formations.formation,
+      selectedTab: 0,
+      activeTab: "Tactics",
+      activePlayers: "",
+      selectedPlayer: ""
     };
-    this.MapPlayerToInstruction();
+    this.state.activePlayers = this.MapPlayerToInstruction();
+    this.state.selectedPlayer = this.setSelectedPlayerForInstruction();
   };
-  MapPlayerToInstruction(){
-    let obj={};
-    obj.activePlayer={x:"",y:""};
-    obj.players=[];
+
+
+  setSelectedPlayerForInstruction() {
+    let obj = {};
+    obj.x = this.state.activePlayers[10].x;
+    obj.y = this.state.activePlayers[10].y;
+
+    return obj;
+  }
+  MapPlayerToInstruction() {
+
+    let players = [];
     let activePlayers = this.state.formation.values[0].players;
+
+    //console.log(InstructionMapping);
     activePlayers.forEach(element => {
-      let player=element.coordinates;
-      console.log(RoleMapping.coordinates);
-      let roles=RoleMapping.coordinates.find((playerRole)=>
-        {
-          console.log(playerRole.x === player.x && playerRole.y === player.y);
+      let player = element.coordinates;
 
-          return (playerRole.x === player.x && playerRole.y === player.y);
-          //console.log(playerRole);
-          
-        }
-      ).roles;
+      let playerroles = (InstructionMapping.find((playerRole) => {
 
-      let activeRole=roles;
-      console.log(player);
-     console.log(activeRole);
-    // console.log(InstructionMapping);
-      // let playerInst= InstructionMapping.find((player)=>{
+        return playerRole.x === player.x && playerRole.y === player.y;
+      }
+      )) === undefined ? "" : (InstructionMapping.find((playerRole) => {
 
-      //   let value = player.role===activeRole
-      //   return value === undefined ? "undef" :true ;
-      // });
-      //console.log(playerInst);
-     // obj.players.push(playerInst);
+        return playerRole.x === player.x && playerRole.y === player.y;
+      }
+      ));
+
+
+      players.push(playerroles);
+    
       
+
+
+
     });
-    //console.log(obj);
 
-
+    return players;
   }
 
-  changeTab = (obj)=>{
+  changeTab = (obj) => {
     const newState = Object.assign(this.state, obj);
     this.setState(newState);
-    
+
   }
-  
+
   changeDefenseRow = (obj) => {
     const newState = Object.assign(this.state.defenseRow, obj);
     this.setState(newState);
-   }
+  }
 
-   changeOffenseRow = (obj) => {
-    
- 
+  changeOffenseRow = (obj) => {
+
+
     const newState = Object.assign(this.state.offenseRow, obj);
     this.setState(newState);
+
+  }
+
+  changeFormation = (obj) => {
+    const newState = Object.assign(this.state.formation, obj);
+    this.setState(newState);
+
+
+  }
+
+  changePlayerIntructions = (obj) => { ////sets selected player to view instructions
     
-   }
+    const newState = Object.assign(this.state.selectedPlayer,obj);
+    this.setState(newState);
+  }
 
-   changeFormation = (obj) => {
-     const newState = Object.assign(this.state.formation,obj);
-     this.setState(newState);
+  updateIndividualPlayerIntructions = (obj) => {
 
-     
-   }
+    //index points to selected player for changing instructions
+    var index = this.state.activePlayers.findIndex((player) => {
+      return player.x === this.state.selectedPlayer.x && player.y === this.state.selectedPlayer.y;
+    })
+    
+    //find index of array where instruction is equal to obj.key
+    //position of instruction in the instructions array.
+    let instructIndex= this.state.activePlayers[index].instructions.findIndex((ob)=>{
+      let keys=Object.keys(ob);
+      //console.log(keys);
+      return keys[0]===obj.key;
+    } )
+    
+    let prevState = this.state.activePlayers;
+    prevState[index].selectedInstruction[instructIndex]=obj.selected;
 
-   changePlayerIntructions=(obj)=>{
-      console.log(obj);
-   }
-   
   
-  render() {
+    const newState = Object.assign(this.state.activePlayers, prevState);
+    this.setState(newState);
+      
     
+
+    console.log(this.state.activePlayers);
+  }
+
+
+  render() {
+
 
 
     return (
-      
+
       <div className="container">
         <h1>Custom Fifa Tactics</h1>
-        
+
         <div className="flexContainer">
           < div className="tableContainer">
-          <Tabs activeTab={this.state.activeTab} onClick={this.changeTab} >
+            <Tabs activeTab={this.state.activeTab} onClick={this.changeTab} >
               <div label="Tactics">
-            
-                  <TacticsTabContainer data={this.state.defenseRow} onChange={this.changeDefenseRow} />
-                  <TacticsTabContainer data={this.state.offenseRow} onChange={this.changeOffenseRow}/>
-                
+
+                <TacticsTabContainer data={this.state.defenseRow} onChange={this.changeDefenseRow} />
+                <TacticsTabContainer data={this.state.offenseRow} onChange={this.changeOffenseRow} />
+
 
               </div>
-              <div  label="Formations" >
-               
+              <div label="Formations" >
 
-                      <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
+
+                <DisplayListofFormation data={this.state.formation} onChange={this.changeFormation} />
               </div>
 
               <div label="Player Instructions">
-                <FormationField data={this.state.formation.values[this.state.formation.selected]} onChange={this.changePlayerIntructions}  />
+                <FormationField data={this.state.formation.values[this.state.formation.selected]} onChange={this.changePlayerIntructions} />
               </div>
             </Tabs>
-            </div>
-            <div className="sideView">
-              <PreviewContainer data={this.state} />
-            </div>
+          </div>
+          <div className="sideView">
+            <PreviewContainer data={this.state} onChange={this.updateIndividualPlayerIntructions} />
+          </div>
 
         </div>
 
