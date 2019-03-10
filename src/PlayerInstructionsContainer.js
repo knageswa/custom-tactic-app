@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Instructions from './EnumList.js';
+
 
 
 
@@ -21,7 +21,10 @@ const PlayerPosition=(props,coordinates)=>{
         newObj.x = parseInt(tokens[0],10);
         newObj.y = parseInt(tokens[1],10);
         console.log(newObj);
-        props.onChange(newObj);
+        if(newObj.y===0)
+            e.preventDefault();
+        else
+            props.onChange(newObj);
         }
     
     if (result){

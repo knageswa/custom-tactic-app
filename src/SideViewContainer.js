@@ -33,7 +33,7 @@ const displayTactics= (props) => {
 }
 
 const displayFormation = (props)=>{
-    console.log(props);
+   // console.log(props);
     const image=props.values[props.selected];
     return(
         <div>

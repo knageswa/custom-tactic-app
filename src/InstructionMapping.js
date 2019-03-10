@@ -760,7 +760,7 @@ import{
        ]
     },
     {role:Roles.RW,
-        "x":5,
+        "x":4,
         "y":5, 
         selectedInstruction:[1,1,1,1,1], 
         instructions:[

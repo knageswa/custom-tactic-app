@@ -89,8 +89,8 @@
                     {"coordinates":{"x":2,"y":3} },
                     {"coordinates":{"x":3,"y":3} },
                     {"coordinates":{"x":4,"y":3} },
-                    {"coordinates":{"x":2,"y":6} },
-                    {"coordinates":{"x":4,"y":6} }
+                    {"coordinates":{"x":1,"y":6} },
+                    {"coordinates":{"x":3,"y":6} }
                 ],
                 
                 "image": "./formations/3-1-4-2.png"
@@ -107,8 +107,8 @@
                     {"coordinates":{"x":0,"y":3} },
                     {"coordinates":{"x":4,"y":3} },
                     {"coordinates":{"x":2,"y":4} },
-                    {"coordinates":{"x":2,"y":6} },
-                    {"coordinates":{"x":4,"y":6} }
+                    {"coordinates":{"x":1,"y":6} },
+                    {"coordinates":{"x":3,"y":6} }
                 ],
                 "image":"./formations/3-4-1-2.png"
             },
@@ -124,8 +124,8 @@
                     {"coordinates":{"x":1,"y":3} },
                     {"coordinates":{"x":3,"y":3} },
                     {"coordinates":{"x":2,"y":4} },
-                    {"coordinates":{"x":2,"y":6} },
-                    {"coordinates":{"x":4,"y":6} }
+                    {"coordinates":{"x":1,"y":6} },
+                    {"coordinates":{"x":3,"y":6} }
                 ],
                 "image":"./formations/3-4-2-1.png"
             },
@@ -156,7 +156,7 @@
                     {"coordinates":{"x":4,"y":1} },
                     {"coordinates":{"x":2,"y":2} },
                     {"coordinates":{"x":0,"y":3} },
-                    {"coordinates":{"x":2,"y":3} },
+                    {"coordinates":{"x":1,"y":3} },
                     {"coordinates":{"x":3,"y":3} },
                     {"coordinates":{"x":4,"y":3} },
                     {"coordinates":{"x":2,"y":6} }
@@ -480,8 +480,8 @@
                     {"coordinates":{"x":4,"y":2} },
                     {"coordinates":{"x":1,"y":3} },
                     {"coordinates":{"x":3,"y":3} },
-                    {"coordinates":{"x":1,"y":5} },
-                    {"coordinates":{"x":3,"y":5} },
+                    {"coordinates":{"x":0,"y":5} },
+                    {"coordinates":{"x":4,"y":5} },
                     {"coordinates":{"x":2,"y":6} }
                 ],
                 "image":"./formations/3-4-3.png"

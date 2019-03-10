@@ -16,6 +16,7 @@
 
 export const Roles = Object.freeze ({
     GK:Symbol("GK"),
+    RB:Symbol("RB"),
     RWB:Symbol("RWB"),
     RCB:Symbol("RCB"),
     CB:Symbol("CB"),

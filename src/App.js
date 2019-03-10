@@ -9,9 +9,8 @@ import tacticsData from './tacticsData.json';
 import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
 import FormationField from './PlayerInstructionsContainer.js';
-import playerInstruction from './PlayerInstruction.json';
 import InstructionMapping from './InstructionMapping.js';
-import RoleMapping from './RoleMapping.json';
+
 
 
 
@@ -37,7 +36,7 @@ class App extends Component {
     this.state.selectedPlayer = this.setSelectedPlayerForInstruction();
   };
 
-
+///set selected player to default and create an update state method.
   setSelectedPlayerForInstruction() {
     let obj = {};
     obj.x = this.state.activePlayers[10].x;
@@ -48,7 +47,7 @@ class App extends Component {
   MapPlayerToInstruction() {
 
     let players = [];
-    let activePlayers = this.state.formation.values[0].players;
+    let activePlayers = this.state.formation.values[this.state.formation.selected].players;
 
     //console.log(InstructionMapping);
     activePlayers.forEach(element => {
@@ -72,7 +71,7 @@ class App extends Component {
 
 
     });
-
+    console.log(players);
     return players;
   }
 
@@ -96,16 +95,37 @@ class App extends Component {
   }
 
   changeFormation = (obj) => {
+  
     const newState = Object.assign(this.state.formation, obj);
     this.setState(newState);
+   
+    
+    let update = this.MapPlayerToInstruction();
+    this.changeActivePlayers(update);
+    let selObj={};
+    selObj.x=this.state.activePlayers[10].x;
+    selObj.y=this.state.activePlayers[10].y;
+    this.updateSelectedPlayer(selObj);
+
+  }
+  
 
 
+
+  changeActivePlayers= (obj)=>{
+   
+    
+    const newState = Object.assign(this.state.activePlayers, obj);
+    this.setState(newState);
+    
   }
 
   changePlayerIntructions = (obj) => { ////sets selected player to view instructions
     
     const newState = Object.assign(this.state.selectedPlayer,obj);
     this.setState(newState);
+    //console.log("change selected playe");
+
   }
 
   updateIndividualPlayerIntructions = (obj) => {
@@ -123,22 +143,34 @@ class App extends Component {
       return keys[0]===obj.key;
     } )
     
+
+
+    
     let prevState = this.state.activePlayers;
+    //console.log(prevState);
     prevState[index].selectedInstruction[instructIndex]=obj.selected;
 
   
     const newState = Object.assign(this.state.activePlayers, prevState);
     this.setState(newState);
       
-    
+  
+
+   
 
     console.log(this.state.activePlayers);
+  }
+
+  updateSelectedPlayer(obj){
+    const newState = Object.assign(this.state.selectedPlayer, obj);
+    this.setState(newState);
+    //console.log(newState);
   }
 
 
   render() {
 
-
+    
 
     return (
 
