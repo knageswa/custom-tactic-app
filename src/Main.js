@@ -1,27 +1,30 @@
 /* eslint-disable no-undef */
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
+
 import {
     Route,
-    NavLink,
-    HashRouter
+    Link,
+    BrowserRouter
 } from "react-router-dom";
 import Home from "./Home";
 import App from "./App";
+import "react-bootstrap/dist/react-bootstrap.min.js";
 
 
 class Main extends Component {
     render() {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div>
                     < Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
-                        <Navbar.Brand to="/">Fifa 19 Tactics App</Navbar.Brand>
+                        <Navbar.Brand><Link className="navbar-brand"  to="/">Fifa 19 Tactics App</Link></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <NavLink to="/tactics">Tactics</NavLink>
-                                <Nav.Link to="/videos">Videos</Nav.Link>
+                                <LinkContainer to="/tactics"><Nav.Link >Tactics</Nav.Link></LinkContainer>
+                                <LinkContainer to="/videos"><Nav.Link >Videos</Nav.Link></LinkContainer>
                                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -31,8 +34,7 @@ class Main extends Component {
                                 </NavDropdown>
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#deets">Log in</Nav.Link>
-
+                                <LinkContainer to="/login"><Nav.Link >Login</Nav.Link></LinkContainer>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -42,7 +44,7 @@ class Main extends Component {
                         <Route path="/videos" component={App} />
                     </div>
                 </div>
-            </HashRouter >
+            </BrowserRouter >
         )
     }
 }
