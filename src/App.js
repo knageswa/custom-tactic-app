@@ -10,7 +10,8 @@ import formations from './formation.json';
 import DisplayListofFormation from './FormationContainer.js';
 import FormationField from './PlayerInstructionsContainer.js';
 import InstructionMapping from './InstructionMapping.js';
-
+import HeaderTab from './HeaderTab.js';
+import {connect} from 'react-redux';
 
 
 
@@ -21,19 +22,21 @@ class App extends Component {
 
   constructor() {
     super();
-    //console.log(playerInstruction);
+    
     this.state = {
-
+	
       defenseRow: tacticsData.defenseRows,
       offenseRow: tacticsData.offenseRows,
       formation: formations.formation,
       selectedTab: 0,
       activeTab: "Tactics",
       activePlayers: "",
-      selectedPlayer: ""
+      selectedPlayer: "",
+	  activeFormation:""
     };
     this.state.activePlayers = this.MapPlayerToInstruction();
     this.state.selectedPlayer = this.setSelectedPlayerForInstruction();
+	
   };
 
 ///set selected player to default and create an update state method.
@@ -97,8 +100,15 @@ class App extends Component {
   changeFormation = (obj) => {
   
     const newState = Object.assign(this.state.formation, obj);
+	//console.log(obj);
+	
     this.setState(newState);
-   
+	
+	
+	let activeFormation=obj.values[obj.selected].name;
+	console.log(activeFormation);
+	this.updateActiveFormation(activeFormation);
+	
     
     let update = this.MapPlayerToInstruction();
     this.changeActivePlayers(update);
@@ -109,7 +119,14 @@ class App extends Component {
 
   }
   
-
+updateActiveFormation=(selForm)=>{
+	let prevState = this.state;
+	prevState.activeFormation=selForm;
+	
+	const newState = Object.assign(this.state, prevState);
+    this.setState(newState);
+	console.log(newState);
+}
 
 
   changeActivePlayers= (obj)=>{
@@ -166,7 +183,10 @@ class App extends Component {
     this.setState(newState);
     //console.log(newState);
   }
-
+ handleSave=(obj)=>{
+		console.log(obj);
+		console.log(this.state);
+	}
 
   render() {
 
@@ -175,8 +195,8 @@ class App extends Component {
     return (
 
       <div className="container">
-        <h1>Custom Fifa Tactics</h1>
-
+	 
+        <HeaderTab onClick={this.handleSave}/>
         <div className="flexContainer">
           < div className="tableContainer">
             <Tabs activeTab={this.state.activeTab} onClick={this.changeTab} >
