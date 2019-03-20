@@ -186,6 +186,17 @@ updateActiveFormation=(selForm)=>{
  handleSave=(obj)=>{
 		console.log(obj);
 		console.log(this.state);
+		const data ={
+			id:new Date(),
+			name:obj.name,
+			activePlayers:this.state.activePlayers,
+			formation:this.state.activeFormation
+		}
+		
+    this.props.dispatch({
+      type:'ADD_TACTIC',
+      data});
+
 	}
 
   render() {
@@ -229,4 +240,4 @@ updateActiveFormation=(selForm)=>{
   }
 }
 
-export default App;
+export default connect()(App);

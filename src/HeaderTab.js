@@ -52,6 +52,7 @@ class HeaderTab extends Component{
 		this.props.onClick({name:this.state.inputValue});
 		
 		
+		
 	}
 	render(){
 		console.log(this.props);
