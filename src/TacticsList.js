@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import Tactic from './Tactic.js';
-
+import './CSSstyles/tactic.css';
 class TacticsList extends Component {
     render() {
         return (

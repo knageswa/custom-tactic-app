@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Tabs from './Tabs';
 
 
-import './App.css';
-import TacticsTabContainer from './TacticsTabContainer.js';
-import PreviewContainer from './SideViewContainer.js';
+import './CSSstyles/App.css';
+import TacticsTabContainer from './Container/TacticsTabContainer.js';
+import PreviewContainer from './Container/SideViewContainer.js';
 import tacticsData from './tacticsData.json';
 import formations from './formation.json';
-import DisplayListofFormation from './FormationContainer.js';
-import FormationField from './PlayerInstructionsContainer.js';
+import DisplayListofFormation from './Container/FormationContainer.js';
+import FormationField from './Container/PlayerInstructionsContainer.js';
 import InstructionMapping from './InstructionMapping.js';
 import HeaderTab from './HeaderTab.js';
 import {connect} from 'react-redux';
@@ -190,7 +190,8 @@ updateActiveFormation=(selForm)=>{
 			id:new Date(),
 			name:obj.name,
 			activePlayers:this.state.activePlayers,
-			formation:this.state.activeFormation
+      formation:this.state.activeFormation,
+      editing:false
 		}
 		
     this.props.dispatch({

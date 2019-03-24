@@ -1,4 +1,4 @@
-import './modalStyle.css'
+import './CSSstyles/modalStyle.css'
 import React from 'react';
 
 

@@ -8,9 +8,11 @@ import {
     Link,
     BrowserRouter
 } from "react-router-dom";
-import Home from "./Home";
+import Home from "./Container/Home";
 import App from "./App";
+import Footer from "./footer";
 import "react-bootstrap/dist/react-bootstrap.min.js";
+import VideoContainer from "./Container/VideoContainer";
 
 
 class Main extends Component {
@@ -25,24 +27,28 @@ class Main extends Component {
                             <Nav className="mr-auto">
                                 <LinkContainer to="/tactics"><Nav.Link >Tactics</Nav.Link></LinkContainer>
                                 <LinkContainer to="/videos"><Nav.Link >Videos</Nav.Link></LinkContainer>
-                                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                                {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown>
+                                </NavDropdown> */}
                             </Nav>
                             <Nav>
                                 <LinkContainer to="/login"><Nav.Link >Login</Nav.Link></LinkContainer>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
+                 {/* <Footer>{Footer}</Footer> */}
                     <div className="content">
                         <Route exact path="/" component={Home} />
                         <Route path="/tactics" component={App} />
-                        <Route path="/videos" component={App} />
+                        <Route path="/videos" component={VideoContainer} />
                     </div>
+
+                    
+                    
                 </div>
             </BrowserRouter >
         )

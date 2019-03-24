@@ -1,6 +1,6 @@
 import React from 'react';
-import DropDown from './DropDown.js';
-import Slider from './Slider.js';
+import DropDown from '../DropDown.js';
+import Slider from '../Slider.js';
 
 
 const TableHeader =() => {

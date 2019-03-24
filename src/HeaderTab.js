@@ -3,21 +3,9 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from './modal';
+import './CSSstyles/HeaderTab.css';
 
-
-  const button={
-	"align-self": "flex-end"
-  }
   
-  const header={
-	  display:"flex",
-	  "justify-content": "space-between",
-	  "align-items": "center"
-  }
-  const title={
-	  "align-self": "center"
-	  
-  }
 
 
 
@@ -48,8 +36,13 @@ class HeaderTab extends Component{
 	
 	onSave=(e)=>{
 		
-		this.hideModal();
-		this.props.onClick({name:this.state.inputValue});
+		if(this.state.inputValue!==''){
+			this.hideModal();
+			this.props.onClick({name:this.state.inputValue});
+		}
+		else{
+			alert("enter an name");
+		}
 		
 		
 		
@@ -57,16 +50,18 @@ class HeaderTab extends Component{
 	render(){
 		console.log(this.props);
 		return(
-		 <div className="header" style={header}>
-			<h1 style={title} >Custom Fifa Tactics</h1>
-			<Modal show={this.state.show} handleClose={this.hideModal}>
+		 <div className="header" >
+			<h1 className="title" >Custom Fifa Tactics</h1>
+			<Modal show={this.state.show} handleClose={this.hideModal} >
+			<div onClick={this.hideModal}>
 				<p>Enter A Name for Your Tactic</p>
-				<input  className="input"   onChange={evt => this.updateInputValue(evt)}/> 
-				<Button variant="contained"  className="saveButton" style={button} onClick={this.onSave}>
+				<input required className="input"   onChange={evt => this.updateInputValue(evt)}/> 
+				<Button variant="contained"  className="saveButton" onClick={this.onSave}>
 					Submit
 				</Button>
+				</div>
 			</Modal>
-			<Button variant="contained"  className="saveButton" style={button} onClick={this.showModal}>
+			<Button variant="contained"  className="saveButton"  onClick={this.showModal}>
 				Save Tactic
 			</Button>
 		</div>

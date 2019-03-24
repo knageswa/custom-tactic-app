@@ -1,4 +1,4 @@
-import './Slider.css';
+import './CSSstyles/Slider.css';
 
 import React from 'react';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Instruction from './IndividualPlayerInstruction.js';
-import './sideViewContainer.css';
+import Instruction from '../IndividualPlayerInstruction.js';
+import '../CSSstyles/sideViewContainer.css';
 
 
 
