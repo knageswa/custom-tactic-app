@@ -1,0 +1,57 @@
+{
+    "activePlayer":{
+        "x":"",
+        "y":""
+
+    },
+    "players":[
+        {
+            "role":"",
+            "instructions":
+            [
+                {}
+            ]
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        },
+        {
+            "role":"",
+            "instructions":""
+        }
+
+    ]
+}

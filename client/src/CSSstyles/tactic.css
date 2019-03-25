@@ -1,0 +1,28 @@
+
+
+
+.delete {
+        background: #ff7777;
+        border:none;
+        text-align: center;
+        font-size:15px;
+        padding:10px 20px;
+        border-radius:20px;
+        cursor:pointer;
+        outline: none;
+        color:#fff;
+}
+        
+        
+.edit {
+        background:#02b3e4;;
+        border:none;
+        text-align: center;
+        font-size:15px;
+        padding:10px 20px;
+        border-radius:20px;
+        cursor:pointer;
+        margin-right:auto;
+        outline: none;
+        color:#fff;
+ }
